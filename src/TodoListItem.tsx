@@ -1,4 +1,5 @@
 import React from "react";
+import { Todo, ToggleComplete } from "./types";
 import "./TodoListItem.css";
 
 interface TodoListItemProps {
