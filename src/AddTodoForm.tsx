@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState, ChangeEvent, KeyboardEvent, useEffect, useRef } from "react";
 import { AddTodo } from "./types";
 
 interface AddTodoFormProps {
@@ -7,23 +7,45 @@ interface AddTodoFormProps {
 
 export const AddTodoForm: React.FC<AddTodoFormProps> = ({ addTodo }) => {
   const [newTodo, setNewTodo] = useState<string>("");
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setNewTodo(e.target.value);
   };
 
-  const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    addTodo(newTodo);
-    setNewTodo("");
+  const handleEnter = (e: KeyboardEvent) => {
+    if (e.key === "Enter") {
+      onAddClick();
+    } else if (e.key === "Escape") {
+      setNewTodo("");
+    }
   };
 
+  const onAddClick = () => {
+    addTodo(newTodo);
+    setNewTodo("");
+    inputRef.current?.focus();
+  };
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
   return (
-    <form>
-      <input type="text" value={newTodo} onChange={handleChange} />
-      <button type="submit" onClick={handleSubmit}>
-        Add Todo
-      </button>
-    </form>
+    <div className="add-form-container">
+      <div className="textfield">
+        <input
+          ref={inputRef}
+          type="text"
+          value={newTodo}
+          onKeyDown={handleEnter}
+          onChange={handleChange}
+          data-testid="new-todo-textbox"
+        />
+      </div>
+      <div className="button">
+        <button onClick={onAddClick}>Add</button>
+      </div>
+    </div>
   );
 };

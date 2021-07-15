@@ -12,6 +12,7 @@ export const TodoList: React.FC<TodoListProps> = ({
   toggleComplete
 }) => {
   return (
+    <div className="todo-list-container">
     <ul>
       {todos.map(todo => (
         <TodoListItem
@@ -21,5 +22,6 @@ export const TodoList: React.FC<TodoListProps> = ({
         />
       ))}
     </ul>
+    </div>
   );
 };

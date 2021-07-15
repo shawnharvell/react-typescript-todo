@@ -23,10 +23,10 @@ const App: React.FC = () => {
   };
 
   return (
-    <React.Fragment>
+    <div className="app-container">
       <TodoList todos={todos} toggleComplete={toggleComplete} />
       <AddTodoForm addTodo={addTodo} />
-    </React.Fragment>
+    </div>
   );
 };
 
