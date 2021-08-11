@@ -1,7 +1,7 @@
 import React from "react";
 import { Todo, ToggleComplete } from "./types";
 
-interface TodoListItemProps {
+export interface TodoListItemProps {
   todo: Todo;
   toggleComplete: ToggleComplete;
 }

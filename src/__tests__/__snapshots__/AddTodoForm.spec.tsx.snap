@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddTodoForm snapshot test 1`] = `
+<body>
+  <div>
+    <div
+      class="add-form-container"
+    >
+      <div
+        class="textfield"
+      >
+        <input
+          data-testid="new-todo-textbox"
+          placeholder="I need to do..."
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="button"
+      >
+        <button>
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;

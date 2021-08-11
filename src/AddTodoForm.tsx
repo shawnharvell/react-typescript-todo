@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent, KeyboardEvent, useEffect, useRef } from "react";
 import { AddTodo } from "./types";
 
-interface AddTodoFormProps {
+export interface AddTodoFormProps {
   addTodo: AddTodo;
 }
 
@@ -40,6 +40,7 @@ export const AddTodoForm: React.FC<AddTodoFormProps> = ({ addTodo }) => {
           value={newTodo}
           onKeyDown={handleEnter}
           onChange={handleChange}
+          placeholder="I need to do..."
           data-testid="new-todo-textbox"
         />
       </div>
